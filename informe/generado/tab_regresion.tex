@@ -1,0 +1,17 @@
+\begin{table}[H]
+\centering
+\caption{Regresión de escalabilidad. Modelo conjunto $T_p(n) = a\,c^{\,n}/p^{\beta} + T_0$ ajustado por mínimos cuadrados sobre $\log T$ (v1 para $p=1$ y v2 dinámico para $p = 2, \dots, 16$). $E_{16}^{\infty} = 16^{\beta-1}$ es la eficiencia con 16 núcleos cuando $T_0$ es despreciable. A la derecha, la base de crecimiento $c_p$ de un ajuste exponencial $T_p(n) = a_p\,c_p^{\,n}$ separado para cada $p$.}
+\label{tab:regresion}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lcrrrrr|rrrrr}
+\toprule
+ & & \multicolumn{5}{c|}{Modelo conjunto} & \multicolumn{5}{c}{$c_p$ por separado} \\
+Caso & $n$ & $c$ & $\beta$ & $T_0$ & $R^2$ & $E_{16}^{\infty}$ & $p{=}1$ & 2 & 4 & 8 & 16 \\
+\midrule
+Capitales, minout & 10--20 & 3.83 & 0.73 & 0.76~ms & 0.995 & 0.47 & 3.62 & 3.65 & 3.53 & 3.26 & 3.02 \\
+VLSI, minout & 10--20 & 3.40 & 0.78 & 0.19~ms & 0.994 & 0.55 & 3.42 & 3.45 & 3.43 & 3.35 & 3.16 \\
+VLSI, MST (v4) & 26--33 & 2.75 & 0.83 & 0.18~s & 0.990 & 0.62 & 2.59 & 2.52 & 2.48 & 2.40 & 2.39 \\
+\bottomrule
+\end{tabular}
+\end{table}

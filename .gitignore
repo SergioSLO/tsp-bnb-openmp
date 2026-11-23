@@ -1,0 +1,14 @@
+bin/
+runs/
+logs/
+resultados_*/
+__pycache__/
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+*.synctex.gz

@@ -1,0 +1,30 @@
+== topologia (n003) ==
+CPU(s):              64
+Thread(s) per core:  2
+Core(s) per socket:  16
+Socket(s):           2
+NUMA node(s):        2
+Model name:          Intel(R) Xeon(R) Gold 6130 CPU @ 2.10GHz
+NUMA node0 CPU(s):   0-15,32-47
+NUMA node1 CPU(s):   16-31,48-63
+CPUs asignadas al job: 12-27,44-59  (nproc = 32)
+nucleos fisicos distintos en el nodo: 32
+socket 0: 8 CPUs logicas
+socket 1: 24 CPUs logicas
+nucleos fisicos asignados: 16
+== 1) costo con p = 1 (n=18) ==
+v1 sin OpenMP            | v1_seq,1,23.149229,31174281
+v1 con -fopenmp          | v1_seq,1,30.996875,31174281
+v2 p=1 bind=close        | v2_for_dynamic,1,31.438096,31174281
+v2 p=1 sin afinidad      | v2_for_dynamic,1,21.946533,31174281
+v2 p=1 wait=passive      | v2_for_dynamic,1,30.795102,31174281
+== 2) p = 16 vs 32 con distinta afinidad (n=18) ==
+p=16 cores/close       | v2_for_dynamic,16,1.831159,29594655
+p=16 cores/spread      | v2_for_dynamic,16,1.855417,30053890
+p=16 threads/close     | v2_for_dynamic,16,3.053237,29247652
+p=16 sin afinidad      | v2_for_dynamic,16,4.794017,29247585
+p=32 cores/close       | v2_for_dynamic,32,1.990747,32372259
+p=32 cores/spread      | v2_for_dynamic,32,2.041118,33402345
+p=32 threads/close     | v2_for_dynamic,32,1.910338,32583904
+p=32 sin afinidad      | v2_for_dynamic,32,1.954612,32844354
+fin

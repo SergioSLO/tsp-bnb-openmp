@@ -1,0 +1,22 @@
+# Cola de experimentos. Formato: tipo N REPS [REP_INICIAL]
+#   n      -> todas las versiones (v1, v2 static, v2 dynamic, v3) para cada p
+#   depth  -> v2 dynamic y v3 con d = 1..4 para cada p
+# Cada linea corre completa en un solo nodo (T1 y Tp de esa linea comparables).
+# n = 20 y 19 van partidos por repeticion para que las dos cadenas los compartan.
+# Tiempos estimados en n004 (Xeon Gold 6130): n=20 ~2.3 h por repeticion.
+n 20 1 1
+n 20 1 2
+n 20 1 3
+n 19 1 1
+n 19 1 2
+n 19 1 3
+depth 16 3
+n 18 5
+n 17 5
+n 16 5
+n 15 5
+n 14 5
+n 13 5
+n 12 5
+n 11 5
+n 10 5
