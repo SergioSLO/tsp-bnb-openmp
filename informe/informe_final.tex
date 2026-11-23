@@ -19,6 +19,7 @@
 \usepackage{array}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 \usepackage{url}
+\usepackage[hidelinks]{hyperref}
 
 \floatname{algorithm}{Algoritmo}
 \renewcommand{\algorithmicrequire}{\textbf{Entrada:}}
@@ -86,6 +87,13 @@
     {\large
     \textbf{Docente}\\
     Jose Antonio Fiestas Iquira 
+    \par}
+
+    \vspace{1.2cm}
+
+    {\large
+    \textbf{Repositorio}\\
+    \url{https://github.com/SergioSLO/tsp-bnb-openmp}
     \par}
 
     \vspace{1.2cm}
@@ -475,7 +483,7 @@ En la Sección~\ref{sec:res_modelo} se compara el $T_p$ que predice este modelo 
 \label{sec:impl}
 
 \subsection{Versiones del código}
-El código se escribió en C++17 y se desarrolló en cuatro versiones, cada una validada antes de pasar a la siguiente. Todas comparten la función \textsc{CalcularBound} y el recorrido secuencial \textsc{Buscar} (archivo \texttt{common.hpp}), de modo que exploran el mismo árbol con la misma cota y las diferencias de tiempo se deben solo a la paralelización.
+El código se escribió en C++17 y se desarrolló en cuatro versiones, cada una validada antes de pasar a la siguiente. Todas comparten la función \textsc{CalcularBound} y el recorrido secuencial \textsc{Buscar} (archivo \texttt{common.hpp}), de modo que exploran el mismo árbol con la misma cota y las diferencias de tiempo se deben solo a la paralelización. El código, los datos, los resultados crudos medidos en Khipu y el script que regenera todas las figuras y tablas están en \url{https://github.com/SergioSLO/tsp-bnb-openmp}.
 
 \begin{enumerate}
     \item \textbf{v1 (secuencial, \texttt{tsp\_seq.cpp}).} Implementa los Algoritmos~\ref{alg:bound}--\ref{alg:main_sec}. Se compila sin OpenMP. El conjunto de ciudades visitadas se guarda en una máscara de 64 bits (hasta 64 ciudades), por lo que la copia de $vis$ es $O(1)$ y la de la ruta es $O(n)$.
@@ -869,7 +877,7 @@ De la regresión se concluye lo siguiente:
     \item \textbf{\citet{held1962dynamic}}: algoritmo de programación dinámica usado como validador exacto e independiente hasta $n=22$.
     \item \textbf{\citet{prim1957shortest}}: algoritmo para el árbol de expansión mínima, usado en la cota de v4.
     \item \textbf{\citet{bull1999measuring}}: se siguió su metodología (repetir la construcción y restar un ciclo de referencia) para medir con \textit{microbenchmarks} las componentes del overhead de OpenMP.
-    \item \textbf{Inteligencia artificial} \citep{anthropic_claude}: se usó el asistente Claude para revisar el diseño del PRAM a partir de la retroalimentación del avance, generar el código de las cuatro versiones, los validadores, los \textit{microbenchmarks} y los scripts de SLURM para Khipu, procesar los resultados y redactar borradores de este informe. Su impacto fue acelerar la implementación y el análisis. El equipo verificó cada resultado: la correctitud del código se comprobó contra fuerza bruta (196 casos) y contra Held--Karp, los experimentos se ejecutaron en Khipu y los valores reportados se obtuvieron directamente de los archivos de resultados con el script \texttt{analisis.py}.
+    \item \textbf{Inteligencia artificial} \citep{anthropic_claude}: se usó el asistente Claude para revisar el diseño del PRAM a partir de la retroalimentación del avance, generar el código de las cuatro versiones, los validadores, los \textit{microbenchmarks} y los scripts de SLURM para Khipu, procesar los resultados y redactar borradores de este informe. Su impacto fue acelerar la implementación y el análisis. El equipo verificó cada resultado: la correctitud del código se comprobó contra fuerza bruta (196 casos) y contra Held--Karp, los experimentos se ejecutaron en Khipu y los valores reportados se obtuvieron directamente de los archivos de resultados con el script \texttt{analisis.py}, disponible en el repositorio del proyecto (\url{https://github.com/SergioSLO/tsp-bnb-openmp}).
 \end{itemize}
 
 \bibliographystyle{plainnat}
